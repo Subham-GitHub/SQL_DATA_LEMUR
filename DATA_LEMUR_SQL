@@ -69,6 +69,40 @@ SELECT
   COUNT(CASE WHEN device_type='phone' OR device_type='tablet' THEN 1 END) AS mobile_views
 FROM viewership;
 
+
+5.Cities With Completed Trades (Robinhood)
+
+You are given the tables below containing information on Robinhood trades and users. Write a query to list the top three cities that have the most completed trade orders in descending order.
+
+Output the city and number of orders.
+
+Tables: trades, users
+
+::::SOLUTION::::
+SELECT u.city, COUNT(t.order_id) AS Total_Orders 
+FROM trades t
+LEFT JOIN users u
+ON t.user_id=u.user_id
+where t.status='Completed'
+GROUP BY u.city
+ORDER BY Total_Orders DESC;
+
+
+6.Duplicate Job Listings (LinkedIN)
+
+Assume you are given the table below that shows job postings for all companies on the LinkedIn platform. Write a query to get the number of companies that have posted duplicate job listings.
+
+Clarification:
+
+Duplicate job listings refer to two jobs at the same company with the same title and description.
+
+Tables: job_listings
+
+::::SOLUTION::::
+
+
+
+
 -------------------------------------------------------------------------------------------------
                                     DIFFICULTY  ---  MEDIUM 
 -------------------------------------------------------------------------------------------------
